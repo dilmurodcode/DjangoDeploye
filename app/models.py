@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Customers(models.Model):
+class Customer(models.Model):
     full_name = models.CharField(max_length=255, null=True, blank=True)
     position = models.CharField(max_length=255, null=True, blank=True)
     image = models.ImageField(upload_to="")
@@ -74,6 +74,9 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     icon = models.ImageField(upload_to="")
     order = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.name
 
 
 class Company(models.Model):
